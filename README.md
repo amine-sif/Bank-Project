@@ -50,24 +50,20 @@ Rules: client account number = 6-8 uppercase letters/digits; PIN = 4-5 digits.
 
 ```text
 Bank-Project/
-├── BankClient2/                 # Client application & Swing GUI
-│   └── src/main/java/com/
-│       ├── client/              # Socket client & event handlers
-│       ├── commonclient/        # Networking, events & listener threads
+├── BankClient/                  # Client application & Swing GUI
+│   └── src/
+│       ├── client/              # Socket client, event handlers, entry points (MainFrame, ConsoleClient)
+│       │   └── network/         # Connection, events & listener threads
 │       ├── controller/          # Swing action & mouse listeners
 │       ├── observer/            # Observer/Observable pattern
-│       ├── programs/            # Entry points (MainFrame, ClientProgramLab2)
 │       └── view/                # Swing panels & UI components
 │
-└── BankServer2/                 # Server application & banking logic
-    └── src/main/java/com/
-        ├── bank/                # Domain model (Bank, ClientAccount, accounts, operations)
-        │   ├── adt/             # LinkedStack
-        │   ├── io/              # BankIO (save/load)
-        │   └── server/          # BankServer, BankConnection, inactivity thread
-        ├── common/              # Networking, events & listener threads
-        ├── programs/            # Entry point (ServerProgramLab2)
-        └── server/              # Generic Server, event handler & command processor
+└── BankServer/                  # Server application & banking logic
+    └── src/
+        ├── bank/                # Domain model (Bank, ClientAccount, accounts, operations),
+        │                        # LinkedStack and BankIO (save/load)
+        └── server/              # Server, BankServer, command handler, entry point (ServerMain)
+            └── network/         # Connection, events & listener threads
 ```
 
 ---
@@ -76,7 +72,10 @@ Bank-Project/
 
 Requires JDK 17+ (tested on 21).
 
-1. Start the server: run `com.programs.ServerProgramLab2` (listens on port 8888).
-2. Start the client: run `com.programs.MainFrame`, then **Start → Connect**.
+1. Start the server: run `server.ServerMain` (listens on port 8888).
+2. Start the client: run `client.MainFrame`, then **Start → Connect**.
 3. Stop the server by typing `EXIT` in its console so the bank is saved to `bank.data`
    (in the server's working directory).
+
+A console client (`client.ConsoleClient`) is also available for sending raw protocol
+commands without the GUI.
