@@ -1,4 +1,4 @@
-# Banking System
+# Banking Application
 
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
 ![Swing](https://img.shields.io/badge/GUI-Java%20Swing-blue?style=for-the-badge)
@@ -72,8 +72,8 @@ Bank-Project/
 
 Requires JDK 17+ (tested on 21).
 
-1. Start the server: run `server.ServerMain` (listens on port 8888).
-2. Start the client: run `client.MainFrame`, then **Start → Connect**.
+1. Start the server: In BankServer, run `server.ServerMain` (listens on port 8888).
+2. Start the client: In BankClient, run `client.MainFrame`, then **Start → Connect**.
 3. Stop the server by typing `EXIT` in its console so the bank is saved to `bank.data`
    (in the server's working directory).
 
